@@ -1,0 +1,18 @@
+import canonicalLaneMathlib.AdmissibleClass
+import GlobalMethodsHomotopyApproachesNumericalCanonicalLaneLean.HomotopyContinuation
+import GlobalMethodsHomotopyApproachesNumericalCanonicalLaneLean.NewtonEndgame
+import GlobalMethodsHomotopyApproachesNumericalCanonicalLaneLean.BridgeLemmas
+import GlobalMethodsHomotopyApproachesNumericalCanonicalLaneLean.GateLemmas
+
+namespace HautevilleHouse
+namespace GlobalMethodsHomotopyApproachesNumericalCanonicalLaneLean
+
+def ConstrainedGlobalMethodsClosure (A : AdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem constrained_global_methods_endgame (A : AdmissibleClass) :
+    ConstrainedGlobalMethodsClosure A :=
+  And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end GlobalMethodsHomotopyApproachesNumericalCanonicalLaneLean
+end HautevilleHouse
